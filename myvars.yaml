@@ -1,0 +1,32 @@
+---
+  - dnsserver1: 8.8.8.8
+  - dnsserver2: 8.8.4.4
+  - username: someusername
+  - password: passwordgoeshere
+  - timeoutvalue: 20
+  - snmpcommunity: notpublicstring
+  - baseuri:
+      - oob-pool1-kvm1.system.port.cloud.tm
+      - oob-pool1-kvm2.system.port.cloud.tm
+      - oob-pool1-kvm3.system.port.cloud.tm
+      - oob-pool1-kvm4.system.port.cloud.tm
+      - oob-pool1-kvm5.system.port.cloud.tm
+      - oob-pool1-kvm6.system.port.cloud.tm
+      - oob-pool2-kvm1.system.port.cloud.tm
+      - oob-pool2-kvm2.system.port.cloud.tm
+      - oob-pool2-kvm3.system.port.cloud.tm
+      - oob-pool2-kvm4.system.port.cloud.tm
+      - oob-pool2-kvm5.system.port.cloud.tm
+      - oob-pool2-kvm6.system.port.cloud.tm
+      - oob-pool3-kvm1.system.port.cloud.tm
+      - oob-pool3-kvm2.system.port.cloud.tm
+      - oob-pool3-kvm3.system.port.cloud.tm
+      - oob-pool3-kvm4.system.port.cloud.tm
+      - oob-pool3-kvm5.system.port.cloud.tm
+      - oob-pool3-kvm6.system.port.cloud.tm
+      - oob-pool4-kvm1.system.port.cloud.tm
+      - oob-pool4-kvm2.system.port.cloud.tm
+      - oob-pool4-kvm3.system.port.cloud.tm
+      - oob-pool4-kvm4.system.port.cloud.tm
+      - oob-pool4-kvm5.system.port.cloud.tm
+      - oob-pool4-kvm6.system.port.cloud.tm

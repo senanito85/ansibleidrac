@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  connection: local
+  name: Local Testing
+  gather_facts: False
+  vars_files: myvars.yaml
+
+  tasks: 
+    - name: Configure the idracs
+      include_tasks: idrac_tasks.yml
+      loop: "{{ baseuri }}"

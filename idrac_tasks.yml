@@ -1,0 +1,245 @@
+---
+- name: Configure Static DNS 1st Settings
+  idrac_redfish_config:
+    category: Manager
+    timeout: "{{ timeoutvalue }}"
+    command: SetManagerAttributes
+    manager_attribute_name: IPv4Static.1.DNS1
+    manager_attribute_value: "{{ dnsserver1 }}"
+    baseuri: "{{ baseuri }}"
+    username: "{{ username }}"
+    password: "{{ password }}"
+
+- name: Configure Static DNS 2nd Settings
+  idrac_redfish_config:
+    category: Manager
+    timeout: "{{ timeoutvalue }}"
+    command: SetManagerAttributes
+    manager_attribute_name: IPv4Static.1.DNS2
+    manager_attribute_value: "{{ dnsserver2 }}"
+    baseuri: "{{ baseuri }}"
+    username: "{{ username }}"
+    password: "{{ password }}"
+
+- name: Configure Enable Syslog
+  idrac_redfish_config:
+    category: Manager
+    timeout: "{{ timeoutvalue }}"
+    command: SetManagerAttributes
+    manager_attribute_name: SysLog.1.SysLogEnable
+    manager_attribute_value: Enabled
+    baseuri: "{{ baseuri }}"
+    username: "{{ username }}"
+    password: "{{ password }}"
+
+- name: Configure Set Syslog Server
+  idrac_redfish_config:
+    category: Manager
+    timeout: "{{ timeoutvalue }}"
+    command: SetManagerAttributes
+    manager_attribute_name: SysLog.1.Server1
+    manager_attribute_value: syslog.sys.tprt1.cloudsys.tmcs
+    baseuri: "{{ baseuri }}"
+    username: "{{ username }}"
+    password: "{{ password }}"
+
+- name: Configure Set Syslog Server
+  idrac_redfish_config:
+    category: Manager
+    timeout: "{{ timeoutvalue }}"
+    command: SetManagerAttributes
+    manager_attribute_name: SysLog.1.Server1
+    manager_attribute_value: syslog.sys.tprt1.cloudsys.tmcs
+    baseuri: "{{ baseuri }}"
+    username: "{{ username }}"
+    password: "{{ password }}"
+
+- name: Configure Enable SNMP Agent 
+  idrac_redfish_config:
+    category: Manager
+    timeout: "{{ timeoutvalue }}"
+    command: SetManagerAttributes
+    manager_attribute_name: SNMP.1.AgentEnable
+    manager_attribute_value: Enabled
+    baseuri: "{{ baseuri }}"
+    username: "{{ username }}"
+    password: "{{ password }}"
+
+- name: Configure Set SNMP trap format 
+  idrac_redfish_config:
+    category: Manager
+    timeout: "{{ timeoutvalue }}"
+    command: SetManagerAttributes
+    manager_attribute_name: SNMP.1.TrapFormat
+    manager_attribute_value: SNMPv3
+    baseuri: "{{ baseuri }}"
+    username: "{{ username }}"
+    password: "{{ password }}"
+
+- name: Configure Set SNMP protocol to all
+  idrac_redfish_config:
+    category: Manager
+    timeout: "{{ timeoutvalue }}"
+    command: SetManagerAttributes
+    manager_attribute_name: SNMP.1.SNMPProtocol
+    manager_attribute_value: All
+    baseuri: "{{ baseuri }}"
+    username: "{{ username }}"
+    password: "{{ password }}"
+
+- name: Configure Set SNMP agent community string
+  idrac_redfish_config:
+    category: Manager
+    timeout: "{{ timeoutvalue }}"
+    command: SetManagerAttributes
+    manager_attribute_name: SNMP.1.AgentCommunity
+    manager_attribute_value: "{{ snmpcommunity }}"
+    baseuri: "{{ baseuri }}"
+    username: "{{ username }}"
+    password: "{{ password }}"
+
+- name: Configure set NTP to enable
+  idrac_redfish_config:
+    category: Manager
+    timeout: "{{ timeoutvalue }}"
+    command: SetManagerAttributes
+    manager_attribute_name: NTPConfigGroup.1.NTPEnable
+    manager_attribute_value: Enabled
+    baseuri: "{{ baseuri }}"
+    username: "{{ username }}"
+    password: "{{ password }}"
+
+- name: Configure NTP server1
+  idrac_redfish_config:
+    category: Manager
+    timeout: "{{ timeoutvalue }}"
+    command: SetManagerAttributes
+    manager_attribute_name: NTPConfigGroup.1.NTP1
+    manager_attribute_value: "{{ dnsserver1 }}"
+    baseuri: "{{ baseuri }}"
+    username: "{{ username }}"
+    password: "{{ password }}"
+
+- name: Configure NTP Server2
+  idrac_redfish_config:
+    category: Manager
+    timeout: "{{ timeoutvalue }}"
+    command: SetManagerAttributes
+    manager_attribute_name: NTPConfigGroup.1.NTP2
+    manager_attribute_value: "{{ dnsserver2 }}"
+    baseuri: "{{ baseuri }}"
+    username: "{{ username }}"
+    password: "{{ password }}"
+
+- name: Configure Set Timezone
+  idrac_redfish_config:
+    category: Manager
+    timeout: "{{ timeoutvalue }}"
+    command: SetManagerAttributes
+    manager_attribute_name: Time.1.Timezone
+    manager_attribute_value: Australia/Melbourne
+    baseuri: "{{ baseuri }}"
+    username: "{{ username }}"
+    password: "{{ password }}"
+
+- name: Configure Disable IPMI lan
+  idrac_redfish_config:
+    category: Manager
+    timeout: "{{ timeoutvalue }}"
+    command: SetManagerAttributes
+    manager_attribute_name: IPMILan.1.Enable
+    manager_attribute_value: Disabled
+    baseuri: "{{ baseuri }}"
+    username: "{{ username }}"
+    password: "{{ password }}"
+
+- name: Enable Ldap
+  idrac_redfish_config:
+    category: Manager
+    timeout: "{{ timeoutvalue }}"
+    command: SetManagerAttributes
+    manager_attribute_name: LDAP.1.Enable
+    manager_attribute_value: Enabled
+    baseuri: "{{ baseuri }}"
+    username: "{{ username }}"
+    password: "{{ password }}"
+
+- name: Set Group Attribute to DN Enabled
+  idrac_redfish_config:
+    category: Manager
+    timeout: "{{ timeoutvalue }}"
+    command: SetManagerAttributes
+    manager_attribute_name: LDAP.1.GroupAttributeIsDN
+    manager_attribute_value: Enabled
+    baseuri: "{{ baseuri }}"
+    username: "{{ username }}"
+    password: "{{ password }}"
+
+
+- name: Setup Ldap Base DN
+  idrac_redfish_config:
+    category: Manager
+    timeout: "{{ timeoutvalue }}"
+    command: SetManagerAttributes
+    manager_attribute_name: LDAP.1.BaseDN
+    manager_attribute_value: "DC=techops,DC=info"
+    baseuri: "{{ baseuri }}"
+    username: "{{ username }}"
+    password: "{{ password }}"
+
+
+- name: Setup Ldap bind DN
+  idrac_redfish_config:
+    category: Manager
+    timeout: "{{ timeoutvalue }}"
+    command: SetManagerAttributes
+    manager_attribute_name: LDAP.1.BindDN
+    manager_attribute_value: "CN=au-cloudstack,OU=ServiceAccounts,OU=Techops,DC=techops,DC=info"
+    baseuri: "{{ baseuri }}"
+    username: "{{ username }}"
+    password: "{{ password }}"
+
+
+- name: Setup Ldap Attribute of Group Memebership
+  idrac_redfish_config:
+    category: Manager
+    timeout: "{{ timeoutvalue }}"
+    command: SetManagerAttributes
+    manager_attribute_name: LDAP.1.GroupAttribute
+    manager_attribute_value: member
+    baseuri: "{{ baseuri }}"
+    username: "{{ username }}"
+    password: "{{ password }}"
+
+- name: Setup Ldap Server
+  idrac_redfish_config:
+    category: Manager
+    timeout: "{{ timeoutvalue }}"
+    command: SetManagerAttributes
+    manager_attribute_name: LDAP.1.Server
+    manager_attribute_value: ldaps.pci-tmaws.io
+    baseuri: "{{ baseuri }}"
+    username: "{{ username }}"
+    password: "{{ password }}"
+
+- name: Configure Ldap user attribute
+  idrac_redfish_config:
+    category: Manager
+    timeout: "{{ timeoutvalue }}"
+    command: SetManagerAttributes
+    manager_attribute_name: LDAP.1.UserAttribute
+    manager_attribute_value: sAMAccountName
+    baseuri: "{{ baseuri }}"
+    username: "{{ username }}"
+    password: "{{ password }}"
+
+- name: Configure Certificate Validation
+  idrac_redfish_config:
+    category: Manager
+    timeout: "{{ timeoutvalue }}"
+    command: SetManagerAttributes
+    manager_attribute_name: LDAP.1.CertValidationEnable
+    manager_attribute_value: Disabled
+    baseuri: "{{ baseuri }}"
+    username: "{{ username }}"
+    password: "{{ password }}"
